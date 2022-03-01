@@ -1,6 +1,5 @@
 # Valid & Invalid Inputs to email/phone and password and their various combinations
 
-from cmath import exp
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By

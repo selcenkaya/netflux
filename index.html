@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="src/style.css">
+        <link rel="icon" href="src/img/icon.png">
+        <title>Netflix</title>
+    </head>
+    <body>
+        <div class="grad"></div>
+        <div class="login-container">
+            <img class="logo" src="src/img/logo.png">
+            <div class="login-body">
+                <h1>Sign In</h1>
+                <form method="post">
+                    <div class="error" id="db-error">
+                        <div class="error-text" id="db-error-text"></div>
+                    </div>
+                    <div class="user-input" id="text-input">
+                        <input type="text" class="text-field" id="id-email-phone" autocomplete="email" placeholder=" " onfocusout="textInput()" oninput="textCheckCorrection()">
+                        <label for="id-email-phone" class="label-place">Email or phone number</label>
+                    </div>
+                    <div class="input-error" id="text-error"></div>
+                    <div class="user-input" id="pass-input">
+                        <input type="password" class="text-field" id="id-password" autocomplete="password" placeholder=" " onfocusout="passInput()" oninput="passCheckCorrection()">
+                        <label for="id-password" class="label-place">Password</label>
+                        <button type="button" class="password-toggle" id="id-show-hide" onMouseDown="showPassword()">SHOW</button>
+                    </div>
+                    <div class="input-error" id="pass-error"></div>
+                    <button type="submit" class="button-sign-in" id="signin-button" onclick="return checks()">Sign In</button>
+                    <div class="remember-help">
+                        <input type="checkbox" id="id-remember-me" value="true" checked>
+                        <label for="id-remember-me">
+                            <span class="remember-me-text">Remember me</span>
+                        </label>
+                        <a class="help" href="http://help.netflix.com/en/" target="_blank">Need Help?</a>
+                    </div>
+                </form>
+                <div class="below-signin">
+                    <form method="post">
+                        <button class="button-fb" type="submit" onClick="checkLoginState();">
+                            <div class="login-fb">
+                                <img class="icon-fb" src="src/img/fb.png"></img>
+                                <span class="text-fb">Login with Facebook</span>
+                            </div>
+                        </button>
+                    </form>
+                    <div class="new-nf">
+                        New to Netflix?  
+                        <a class="sign-up" target="_blank" href="https://www.netflix.com/tr-en/">Sign up now</a>.
+                    </div>
+                    <div class="recaptcha">
+                        <p>
+                            <span>This page is protected by Google reCAPTCHA to ensure you're not a bot.</span>
+                            <button class="button-more" onclick="expandRecaptcha()" id="disappear">Learn more.</button>
+                        </p>
+                        <div class="recaptcha-more" id="make-vis">
+                            <span>
+                                The information collected by Google reCAPTCHA is subject to the Google 
+                                <a class="google-links" href="https://policies.google.com/privacy?hl=en" target="_blank" >Privacy Policy</a>
+                                and 
+                                <a class="google-links" href="https://policies.google.com/terms?hl=en" target="_blank">Terms of Service</a>
+                                , and is used for providing, maintaining, and improving the reCAPTCHA service and for general security purposes (it is not used for personalized advertising by Google).
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-container">
+            <p class="footer-top">
+                Questions? Call 
+                <a class="footer-number" href="tel:0850-390-7444">0850-390-7444</a>
+            </p>
+            <a class="footer-item" href="https://help.netflix.com/en/node/412" target="_blank">FAQ</a>
+            <a class="footer-item" href="https://help.netflix.com/en" target="_blank">Help Center</a>
+            <a class="footer-item" href="https://help.netflix.com/en/legal/termsofuse" target="_blank">Terms of Use</a>
+            <a class="footer-item" href="https://help.netflix.com/en/legal/privacy" target="_blank">Privacy</a>
+            <a class="footer-item" href="https://tasty.co/compilation/31-cookie-recipes" target="_blank">Cookie Preferences</a>
+            <a class="footer-item" href="https://help.netflix.com/en/legal/corpinfo" target="_blank">Corporate Information</a>
+            <div class="lang-select">
+                <select class="select" id="select">
+                    <option lang="tr">Türkçe</option>
+                    <option selected="" lang="en">English</option>
+                </select>
+            </div>
+        </div>
+        
+        <div id="status"></div>
+        <script type="text/javascript" src="src/script.js"></script>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    </body>
+</html>

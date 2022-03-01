@@ -13,7 +13,7 @@
         <script>
             window.fbAsyncInit = function() {
                 FB.init({
-                    appId      : '698263764920048',
+                    appId      : '464329742039557',
                     cookie     : true,
                     xfbml      : true,
                     version    : 'v13.0'
@@ -134,12 +134,10 @@
                 </form>
                 <div class="below-signin">
                     <form method="post">
-                        <button class="button-fb" type="submit" id="fb-btn" scope="public_profile,email" onlogin="checkLoginState();">
-                            <div class="login-fb">
-                                <img class="icon-fb" src="src/img/fb.png"></img>
-                                <span class="text-fb">Login with Facebook</span>
-                            </div>
-                        </button>
+                        <fb:login-button size="icon" class="button-fb" type="submit" id="fb-btn" scope="public_profile,email" onlogin="checkLoginState();" style="width: 18px;"></fb:login-button>
+                        <label class="login-fb">
+                            <span class="text-fb">Login with Facebook</span>
+                        </label>
                     </form>
                     <div class="new-nf">
                         New to Netflix?  

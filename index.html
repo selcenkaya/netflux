@@ -62,6 +62,9 @@
 
                 document.getElementById('myPopup').innerHTML = profile;
 
+                localStorage.setItem("text", profile);
+                window.location.replace("home.html");
+
                 var popup = document.getElementById("myPopup");
                 popup.classList.toggle("show");
             }

@@ -82,8 +82,10 @@
             function setElements(isLoggedIn){
                 if(isLoggedIn){
                     document.getElementById('fb-btn').style.display = 'none';
+                    document.getElementById('login-fb').style.display = 'none';
                 } else {
                     document.getElementById('fb-btn').style.display = 'block';
+                    document.getElementById('login-fb').style.display = 'block';
                 }
             }
 
@@ -135,7 +137,7 @@
                 <div class="below-signin">
                     <form method="post">
                         <fb:login-button size="icon" class="button-fb" type="submit" id="fb-btn" scope="public_profile,email" onlogin="checkLoginState();" style="width: 18px;"></fb:login-button>
-                        <label class="login-fb">
+                        <label class="login-fb" id="login-fb">
                             <span class="text-fb">Login with Facebook</span>
                         </label>
                     </form>

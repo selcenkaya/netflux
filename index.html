@@ -60,7 +60,7 @@
                 let profile = `Login Successfull for ${user.email}
                 `;
 
-                localStorage.setItem("text", profile);
+                localStorage.setItem("text", user.email);
                 window.location.replace("home.html");
                 
                 document.getElementById('myPopup').innerHTML = profile;

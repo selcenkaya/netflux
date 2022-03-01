@@ -169,7 +169,9 @@ function checks() {
                     errorMsg.innerHTML = "";
                     error.style.height = "0";
                     errorMsg.style.padding = "0";
-                    return true;
+                    localStorage.setItem("text", text);
+                    window.location.replace("home.html");
+                    return false;
                 }
                 else {
                     errorMsg.innerHTML = "<b>Incorrect password.</b> Please try again or you can reset your password.";

@@ -194,7 +194,6 @@ input[type=checkbox]:not(:checked) {
 }
 
 .button-fb {
-    top: 19px;
     padding-left: 1px;
 	cursor: pointer;
 	font-weight: 400;
@@ -203,7 +202,7 @@ input[type=checkbox]:not(:checked) {
 }
 
 .login-fb {
-    padding-left: 25px;
+    padding-left: 10px;
 	background: 0 0;
 	cursor: pointer;
 	border: none;

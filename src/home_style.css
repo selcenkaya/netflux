@@ -1,0 +1,59 @@
+body {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 16px;
+    height: 100%;
+    direction: ltr;
+    background: #141414
+}
+
+.logo {
+    width: 168px;
+    height: auto;
+    position: absolute;
+	left: 42px;
+    top: 22px
+}
+
+.wrapper {
+	margin: 200px 0;
+	text-align: center
+}
+
+
+h1 {
+    color: #fff;
+    font-size: 50px
+}
+
+h2 {
+    color: #fff;
+    font-size: 40px
+}
+
+a {
+	text-decoration: none;
+    color: #fff;
+    font-size: 30px
+}
+
+.alert {
+    background-color: #0fd180;
+    color: white;
+    margin: auto;
+    width: 30%;
+    height: 100%;
+    padding: 10px;
+    text-align: center
+  
+  }
+
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer
+  }
+

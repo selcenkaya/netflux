@@ -1,1 +1,1 @@
-[link](https://selcenkaya.github.io/netflux/ "Netflux")
+[Netflux](https://selcenkaya.github.io/netflux/ "Netflux")

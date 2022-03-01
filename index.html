@@ -6,8 +6,104 @@
         <link rel="icon" href="src/img/icon.png">
         <title>Netflix</title>
     </head>
+
     <body>
         <div class="grad"></div>
+
+        <script>
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '698263764920048',
+                    cookie     : true,
+                    xfbml      : true,
+                    version    : 'v13.0'
+                });
+            };
+
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            function statusChangeCallback(response){
+                if(response.status === 'connected'){
+                    console.log('Logged in and authenticated');
+                    setElements(true);
+                    testAPI();
+                } else {
+                    console.log('Not authenticated');
+                    setElements(false);
+                }
+            }
+
+            function checkLoginState() {
+                FB.getLoginStatus(function(response) {
+                    statusChangeCallback(response);
+                });
+            }
+
+            function testAPI(){
+                FB.api('/me?fields=name,email', function(response){
+                    if(response && !response.error){
+                        console.log(response);
+                        successfullLogin(response);
+                        //buildProfile(response);
+                    }
+                })
+            }
+
+            function successfullLogin(user) {
+
+                let profile = `Login Successfull for ${user.email}
+                `;
+
+                document.getElementById('myPopup').innerHTML = profile;
+
+                var popup = document.getElementById("myPopup");
+                popup.classList.toggle("show");
+            }
+
+            function unSuccessfullLogin() {
+
+                let profile = `unSuccessfull Login
+                `;
+
+                document.getElementById('myPopup2').innerHTML = profile;
+
+                var popup = document.getElementById("myPopup2");
+                popup.classList.toggle("show");
+            }
+
+
+
+            function setElements(isLoggedIn){
+                if(isLoggedIn){
+                    document.getElementById('fb-btn').style.display = 'none';
+                } else {
+                    document.getElementById('fb-btn').style.display = 'block';
+                }
+            }
+
+            function logout(){
+                FB.logout(function(response){
+                    setElements(false);
+                });
+            }
+
+
+            function authanticate(){
+                var email_or_phone = document.getElementById("email_or_phone").value;
+                var password = document.getElementById("password").value;
+                console.log('email:' + email_or_phone);
+
+
+                alert('email:' + email_or_phone + " password" + password);
+            }
+        </script>
+
         <div class="login-container">
             <img class="logo" src="src/img/logo.png">
             <div class="login-body">

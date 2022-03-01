@@ -1,4 +1,4 @@
-# Other Functionalities such as Remember Me, Sign In Button Disable...
+# Other Functionalities such as Remember Me, Sign In Button Disable and Logout after logging in
 
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
@@ -7,7 +7,7 @@ from selenium.webdriver.common.keys import Keys
 import time
 
 
-def checkInputs( textField, passwordField, errors ):
+def logout( textField, passwordField, expectedURL ):
     # set up driver
     #driver = webdriver.Chrome(ChromeDriverManager().install())
     driver = webdriver.Chrome()
@@ -23,32 +23,23 @@ def checkInputs( textField, passwordField, errors ):
     text.send_keys(textField)
     password.send_keys(passwordField)
     button.click()
-    driver.find_element(By.CLASS_NAME, "logo").click() # for errors to show
-
-    for id in errors:
-        err = driver.find_element(By.ID, id).text
-        assert err != ""
-
     time.sleep(3)
+
+    # click logout button
+    button2 = driver.find_element_by_xpath('//a[@href="index.html"]')
+    button2.click()
+    
+    time.sleep(3)
+    actualURL = driver.current_url
+    assert expectedURL == actualURL
+
     driver.close()
 
 
 # empty email+phone / full password
-text1 = ""
-password1 = "teftiş"
-errors1 = ["text-error"]
-checkInputs( text1, password1, errors1 )
-
-# full email+phone / empty password
-text2 = "123456789"
-password2 = ""
-errors2 = ["pass-error"]
-checkInputs( text2, password2, errors2 )
-
-# empty email+phone / empty password
-text3 = ""
-password3 = ""
-errors3 = ["text-error", "pass-error"]
-checkInputs( text3, password3, errors3 )
+text1 = "test1@test.test"
+password1 = "test1"
+expectedURL1 = "https://selcenkaya.github.io/netflux/index.html"
+logout( text1, password1, expectedURL1 )
 
 print( "THE END" )
